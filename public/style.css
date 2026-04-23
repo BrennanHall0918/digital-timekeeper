@@ -1,0 +1,184 @@
+/* Reset */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* Font */
+@font-face {
+  font-family: 'digital-7';
+  src: url(../fonts/digital-7.ttf) format('truetype');
+}
+
+/* Variables */
+:root {
+  --numbers: #4dff00;
+  --black: #050505;
+  --grey: #3d4042;
+}
+
+/* Base layout */
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: #111;
+  color: white;
+}
+
+header, footer {
+  text-align: center;
+  padding: 1rem;
+}
+
+main {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Frame */
+.frame {
+  position: relative;
+  width: 650px;
+  height: 300px;
+  background: var(--grey);
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 10px 25px rgba(0,0,0,.5);
+}
+
+/* Clock grid */
+.clock {
+  height: 100%;
+  display: grid;
+  grid-template-columns: 1fr 3fr 1fr;
+  align-items: center;
+  padding: 20px;
+  background: var(--black);
+  border-radius: 8px;
+}
+
+/* Time */
+#time {
+  grid-column: 2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  font-size: 14rem;
+  white-space: nowrap;
+  align-items: center;
+  gap: 0;
+  transform: translateY(-20px)
+}
+
+/* Colon Blinking Animation */
+#colon {
+  animation: blink 1s step-end infinite;
+}
+
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
+}
+
+/* AM / PM */
+#meridiem {
+  grid-column: 1;
+  align-self: start;
+  font-size: 3rem;
+}
+
+/* Right Column*/
+.rightColumn {
+  grid-column: 3;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-end;
+  gap: 0.5rem;
+  transform: translateY(-15px)
+}
+
+#dayBlock,
+#dateBlock {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: flex-start;
+}
+
+.label {
+  font-size: 2rem;
+  color: #ddd2d2;
+}
+
+#day,
+#date {
+  font-size: 4rem;
+}
+
+/* Neon Glow and Font*/
+#time,
+#meridiem,
+#day,
+#date {
+  font-family: 'digital-7', monospace;
+  color: var(--numbers);
+  text-shadow: 0 0 12px var(--numbers);
+}
+
+/* Mode and Format Buttons */
+button {
+  all: unset;
+  cursor: pointer;
+
+  padding: 8px 14px;
+  border: 1px solid var(--numbers);
+  border-radius: 6px;
+  color: var(--numbers);
+  font-family: 'digital-7', monospace;
+  font-size: 2rem;
+  text-shadow: 0 0 6px var(--numbers);
+
+  background: transparent;
+  transition: 0.2s ease;
+}
+
+button:hover {
+  background: var(--numbers);
+  color: var(--black);
+  box-shadow: 0 0 12px var(--numbers);
+}
+
+button:active {
+  transform: scale(0.95);
+}
+
+.buttons {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  right: 10px;
+
+  display: flex;
+  justify-content: space-between;
+}
+
+#theme,
+#timeFormat {
+  position: absolute;
+  top: 10px;
+  padding: 5px 10px;
+  font-size: .8rem;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+#theme { left: 10px; }
+#timeFormat { right: 10px; }

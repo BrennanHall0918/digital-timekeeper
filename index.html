@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Digital Timekeeper</title>
+
+  <link rel="stylesheet" href="public/style.css" />
+</head>
+
+<body>
+  <header>
+    <h1>NeXTStack: The Digital Timekeeper</h1>
+  </header>
+
+  <main>
+    <section class="frame">
+
+      <!-- Controls -->
+      <div class="buttons">
+        <button id="theme">Toggle Theme</button>
+        <button id="timeFormat">Toggle Format</button>
+      </div>
+
+      <!-- Clock -->
+      <section class="clock">
+        <p id="meridiem">PM</p>
+
+        <p id="time">
+        <span id="hours">12</span>
+        <span id="colon">:</span>
+        <span id="minutes">34</span>
+        </p>
+
+        <section class="rightColumn">
+            <div id="dayBlock">
+                <p class="label">WEEK</p>
+                <p id="day">MON</p>
+            </div>
+
+            <div id="dateBlock">
+                <p class="label">DATE</p>
+                <p id="date">3/23</p>
+            </div>
+        </section>
+      </section>
+      
+
+    </section>
+  </main>
+
+  <footer>
+    <small>Site by:<a href="https://github.com/BrennanHall0918">Brennan Hall</a></small>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
