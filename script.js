@@ -1,3 +1,13 @@
+
+// setting 12 hour format as the default
+let is24Hour = false;
+
+// When button is clicked, swaps the format
+document.getElementById("timeFormat").addEventListener("click", ()=> {
+    is24Hour = !is24Hour;
+    updateClock();
+})
+
 // Updates the clock every time it is run.
 function updateClock() {
     // Current Date
@@ -14,20 +24,24 @@ function updateClock() {
     let month = now.getMonth();
 
     // Padding minutes. Ex: 3:5 becomes 3:05
-    minute = minute.toString().padStart(2, "0");
+    let meridiem = "";
 
-    // AM / PM
-    let meridiem = "AM";
+    // 24-hour format
+    if (is24Hour) {
+        meridiem = ""; // no AM/PM for 24 hour format
+    } else {
+        // 12-hour format
+        meridiem = "AM";
 
-    // Checks if it's AM or PM, and translates the time from 24-hour to 12-hour
-    if (hour === 0) {
-        hour = 12;
-    } else if (hour === 12) {
-        meridiem = "PM";
-    } else if (hour > 12) {
-        hour -= 12;
-        meridiem = "PM";
-    };
+        if (hour === 0) {
+            hour = 12;
+        } else if (hour === 12) {
+            meridiem = "PM";
+        } else if (hour > 12) {
+            hour -= 12;
+            meridiem = "PM";
+        }
+    }
 
     // Updates all information visually
     document.getElementById("meridiem").textContent = `${meridiem}`;
