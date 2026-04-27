@@ -180,9 +180,9 @@ margin-left: auto;
 /* Light Mode Colors */
 body.light {
   --numbers: #111111;
-  --black: #ffffff;
+  --black: #e0d5d5;
   --grey: #3d4042;
-  background: #eaeaea;
+  background: #b6b5b5;
   color: #111;
 }
 
@@ -192,6 +192,10 @@ body.light #meridiem,
 body.light #day,
 body.light #date {
   text-shadow: none;
+}
+
+body.light .label {
+    color: var(--grey);
 }
 
 /* Light Mode Buttons */
