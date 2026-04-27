@@ -8,6 +8,11 @@ document.getElementById("timeFormat").addEventListener("click", ()=> {
     updateClock();
 })
 
+// When theme button is clicked, swaps the theme
+document.getElementById("theme").addEventListener("click", ()=> {
+    document.body.classList.toggle("light");
+});
+
 // Updates the clock every time it is run.
 function updateClock() {
     // Current Date

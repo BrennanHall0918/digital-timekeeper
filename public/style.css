@@ -176,3 +176,27 @@ align-items: center;
 #timeFormat {
 margin-left: auto;
 }
+
+/* Light Mode Colors */
+body.light {
+  --numbers: #111111;
+  --black: #ffffff;
+  --grey: #3d4042;
+  background: #eaeaea;
+  color: #111;
+}
+
+/* Remove Glow for Light Mode */
+body.light #time,
+body.light #meridiem,
+body.light #day,
+body.light #date {
+  text-shadow: none;
+}
+
+/* Light Mode Buttons */
+body.light button {
+  background: linear-gradient(145deg, #e0e0e0, #cfcfcf);
+  color: #111;
+  text-shadow: none;
+}
