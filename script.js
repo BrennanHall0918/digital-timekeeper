@@ -20,10 +20,11 @@ function updateClock() {
     // Variables for hours, seconds, and minutes.
     let hour = now.getHours();
     let minute = now.getMinutes();
+    let second = now.getSeconds();
     let day = now.getDate();
     let month = now.getMonth();
 
-    // Padding minutes. Ex: 3:5 becomes 3:05
+    // AM / PM
     let meridiem = "";
 
     // 24-hour format
@@ -43,10 +44,15 @@ function updateClock() {
         }
     }
 
+    // Alert
+    if (minute === 0 && second === 0) {
+        alert("Top of the hour!");
+    }
+
     // Updates all information visually
     document.getElementById("meridiem").textContent = `${meridiem}`;
     document.getElementById("hours").textContent = hour;
-    document.getElementById("minutes").textContent = minute;
+    document.getElementById("minutes").textContent = minute.toString().padStart(2, 0);
     document.getElementById("day").textContent = `${dayList[week]}`;
     document.getElementById("date").textContent = `${month + 1}/${day}`;
 }
